@@ -1,9 +1,23 @@
 {
+  "name": "confy",
+  "version": "0.0.1",
+  "main": "src/encoder.js",
+  "bin": "src/encoder.js",
   "scripts": {
-    "start": "node src/encoder.js"
+    "test": "node src/encoder.js"
   },
   "dependencies": {
     "aes-js": "^3.1.2",
+    "command-line-args": "^6.0.0",
+    "command-line-usage": "^7.0.3",
     "jsdom": "^24.1.1"
-  }
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "repository": "https://github.com/dimchee/confy",
+  "homepage": "https://github.com/dimchee/confy#Readme.md",
+  "author": "dimchee",
+  "license": "MIT",
+  "description": "CLI program for storing confidential data on public domains"
 }
