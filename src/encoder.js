@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const aesjs = require('aes-js');

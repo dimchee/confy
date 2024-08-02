@@ -1,8 +1,10 @@
 {
-  "name": "confy",
-  "version": "0.0.1",
+  "name": "confy-cli",
+  "version": "0.0.2",
   "main": "src/encoder.js",
-  "bin": "src/encoder.js",
+  "bin": {
+    "confy": "src/encoder.js"
+  },
   "scripts": {
     "test": "node src/encoder.js"
   },
@@ -15,7 +17,10 @@
   "directories": {
     "example": "examples"
   },
-  "repository": "https://github.com/dimchee/confy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimchee/confy.git"
+  },
   "homepage": "https://github.com/dimchee/confy#Readme.md",
   "author": "dimchee",
   "license": "MIT",
