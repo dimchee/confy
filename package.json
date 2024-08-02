@@ -1,6 +1,6 @@
 {
   "name": "confy-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "src/encoder.js",
   "bin": {
     "confy": "src/encoder.js"
