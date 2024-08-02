@@ -12,10 +12,11 @@ const optionDefinitions = [
   { name: 'input', alias: 'i', type: String, defaultOption: true },
   { name: 'key', alias: 'k', type: String },
   { name: 'help', alias: 'h', type: Boolean },
-];
+  { name: 'local', alias: 'l', type: Boolean },
+]
 const sections = [
   {
-    header: 'Confy',
+    header: 'Confy <input>.html -o <output>.html -k <secret_key> [--local]',
     content: 'Simple CLI program for storing confidential data on public domains',
   },
   {
@@ -34,11 +35,15 @@ const sections = [
       {
         name: 'key -k',
         typeLabel: '{underline string}',
-        description: 'value for key url parameter'
+        description: 'Value for key url parameter'
       },
       {
         name: 'help -h',
         description: 'Print this usage guide.'
+      },
+      {
+        name: 'local -l',
+        description: 'Makes generated HTML local'
       }
     ]
   }
@@ -57,7 +62,7 @@ function aes_from_key(key) {
   return new aesjs.ModeOfOperation.ctr(key)
 }
 
-JSDOM.fromFile(args.input).then(dom => {
+JSDOM.fromFile(args.input).then(async dom => {
   var document = dom.window.document;
   Array.from(document.getElementsByClassName("secret")).forEach(x => {
     var textBytes = aesjs.utils.utf8.toBytes(x.innerHTML)
@@ -67,9 +72,17 @@ JSDOM.fromFile(args.input).then(dom => {
     console.log(encrypted)
     x.innerHTML = encrypted
   });
-  document.body.appendChild(
-    JSDOM.fragment('<script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>')
-  )
+
+  if (args.local) {
+    var index = await fetch("https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js")
+    var script = await index.text()
+    document.body.appendChild(JSDOM.fragment(`<script>${script}</script>`))
+  }
+  else { 
+    document.body.appendChild(
+      JSDOM.fragment('<script src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>')
+    )
+  }
   const inject = fs.readFileSync(`${__dirname}/inject.js`, 'utf8')
   document.body.appendChild(JSDOM.fragment(`<script>${inject}</script>`))
   
