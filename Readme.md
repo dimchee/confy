@@ -7,11 +7,11 @@ Simple CLI program for storing confidential data on public domains
 
 - Using [npx](https://docs.npmjs.com/cli/v10/commands/npx):
 ```sh
-npx confy-cli <input>.html -o <output>.html -k <secret_key>
+npx confy-cli <input html file> -o <output html file> -k <secret_key>
 ```
 - Using [nix](https://nixos.org/download/):
 ```sh
-nix run github:dimchee/confy -- <input>.html -o <output>.html -k <secret_key>
+nix run github:dimchee/confy -- <input html file> -o <output html file> -k <secret_key>
 ```
 # Installation
 
