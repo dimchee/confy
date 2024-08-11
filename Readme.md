@@ -9,6 +9,7 @@ Simple CLI program for storing confidential data on public domains
 ```sh
 npx confy-cli <input>.html -o <output>.html -k <secret_key>
 ```
+- Using [nix](https://nixos.org/download/):
 ```sh
 nix run github:dimchee/confy -- <input>.html -o <output>.html -k <secret_key>
 ```
