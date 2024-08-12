@@ -9,7 +9,6 @@
     "test": "node src/encoder.js"
   },
   "dependencies": {
-    "aes-js": "^3.1.2",
     "command-line-args": "^6.0.0",
     "command-line-usage": "^7.0.3",
     "jsdom": "^24.1.1"
