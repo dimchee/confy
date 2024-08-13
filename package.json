@@ -1,27 +1,28 @@
 {
-  "name": "confy-cli",
-  "version": "0.0.4",
-  "main": "src/encoder.js",
-  "bin": {
-    "confy": "src/encoder.js"
-  },
-  "scripts": {
-    "test": "node src/encoder.js"
-  },
-  "dependencies": {
-    "command-line-args": "^6.0.0",
-    "command-line-usage": "^7.0.3",
-    "jsdom": "^24.1.1"
-  },
-  "directories": {
-    "example": "examples"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dimchee/confy.git"
-  },
-  "homepage": "https://github.com/dimchee/confy#Readme.md",
-  "author": "dimchee",
-  "license": "MIT",
-  "description": "CLI program for storing confidential data on public domains"
+	"name": "confy-cli",
+	"version": "0.0.4",
+	"main": "src/encoder.js",
+	"bin": {
+		"confy": "src/encoder.js"
+	},
+	"scripts": {
+		"test": "node src/encoder.js",
+		"test-example": "node src/encoder.js -k some_key -i examples/input.html -o output.html && firefox output.html && firefox output.html?key=some_key"
+	},
+	"dependencies": {
+		"command-line-args": "^6.0.0",
+		"command-line-usage": "^7.0.3",
+		"jsdom": "^24.1.1"
+	},
+	"directories": {
+		"example": "examples"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dimchee/confy.git"
+	},
+	"homepage": "https://github.com/dimchee/confy#Readme.md",
+	"author": "dimchee",
+	"license": "MIT",
+	"description": "CLI program for storing confidential data on public domains"
 }
