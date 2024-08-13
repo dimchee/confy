@@ -2,6 +2,9 @@ const crypto = window.crypto;
 
 async function main() {
 	const password = new URLSearchParams(window.location.search).get("key");
+	for (const x of Array.from(document.getElementsByClassName("unlocked"))) {
+		x.classList.remove(["unlocked"]);
+	}
 	for (const x of Array.from(document.getElementsByClassName("secret"))) {
 		const dec = new TextDecoder();
 		const enc = new TextEncoder();
@@ -14,9 +17,7 @@ async function main() {
 			x.innerHTML = dec.decode(plainText);
 			x.classList.remove(["secret"]);
 			x.classList.add(["unlocked"]);
-		} catch (error) {
-			console.log(error);
-		}
+		} catch (error) {}
 	}
 }
 

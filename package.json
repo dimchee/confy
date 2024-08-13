@@ -7,7 +7,10 @@
 	},
 	"scripts": {
 		"test": "node src/encoder.js",
-		"test-example": "node src/encoder.js -k some_key -i examples/input.html -o output.html && firefox output.html && firefox output.html?key=some_key"
+		"test-input": "node src/encoder.js -k some_key -i examples/input.html -o output.html && firefox output.html && firefox output.html?key=some_key",
+		"test-key": "node src/encoder.js -i examples/key.html -o output.html && firefox output.html && firefox output.html?key=magic_key",
+		"test-nested": "node src/encoder.js -i examples/nested.html -o output.html && firefox output.html && firefox output.html?key=first_key",
+		"test-style": "node src/encoder.js -i examples/style.html -o output.html && firefox output.html && firefox output.html?key=magic_key"
 	},
 	"dependencies": {
 		"command-line-args": "^6.0.0",
