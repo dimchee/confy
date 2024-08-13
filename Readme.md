@@ -258,5 +258,23 @@ firefox output.html?key=second_key
 ```
 - Notice that `unlocked` class is on the last unlocked entry only
 
+## Multiple files?
+
+- This snippet encrypts every `html` file in `examples` directory, and put results in directory `out`:
+```sh
+for file in examples/*.html
+do
+    confy $file -o "out/$(basename -s .html $file).enc.html"
+done
+```
+- This one mimics recursive option:
+```sh
+shopt -s globstar
+for file in examples/**/*.html
+do
+    confy $file -o "out/$(basename -s .html $file).enc.html"
+done
+```
+
 # Mentions
 - The idea originally came up in a conversation with [andrijast](https://github.com/andrijast)
